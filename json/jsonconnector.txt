@@ -1,0 +1,18 @@
+http://localhost:8083/connectors
+{
+        "name": "jdbc_112",
+        "config": {
+                "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+                "connection.url": "jdbc:mysql://mysql:3306/SOURCE_DB",
+                "connection.user": "root",
+                "connection.password": "123456",
+                "topic.prefix": "mysql-s-",
+                "table.whitelist" : "SOURCE_DB.person_info",
+                "mode":"timestamp+incrementing",
+                "timestamp.column.name": "update_date",
+                "incrementing.column.name": "id",
+                "validate.non.null": false                
+                }
+        }
+
+http://localhost:8083/connectors/jdbc_112 ==>delete
